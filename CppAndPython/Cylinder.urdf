@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<robot name="Cylinder">
+    <link name="base_link">
+        <!--视觉？材质？-->
+        <visual>
+            <!--描述初始位置-->
+            <!--看不懂是拿来干啥的。。。。-->
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <!--创建一个圆柱体 cylinder：圆柱 geometry：几何形状-->
+            <geometry>
+                <cylinder length="0.2" radius="0.1732"/>
+            </geometry>
+            <!--将材质命名为yellow（实际颜色与之无关） -->
+            <material name="yellow">
+            <!--设置材质颜色（应该是RGB）最后一个应该是透明度-->
+                <color rgba="0 0.4 0.8 1"/>
+            </material>
+        </visual>
+        <!--好像是碰撞箱？没有这个圆柱骰就一直自由落体-->
+        <collision>
+            <!--仍然描述初始位置-->
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+             <!--创建圆柱体-->
+            <geometry>
+                <cylinder length="0.2" radius="0.1732"/>
+            </geometry>
+        </collision>
+        <!--好像是惯性？没有这个会报错，不过能自动生成（但是报错刷屏看着很不舒服）-->
+        <inertial>
+            <!--依然描述初始位置-->
+            <origin xyz=" 0 0 0" rpy="0 0 0" />
+            <!--质量，单位为kg-->
+            <mass value="1"/>
+            <!-- 惯 性 张 量 -->
+            <!--我物理专业都看不懂这玩意儿是什么东西，泪目-->
+            <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+        </inertial>
+    </link>
+</robot>
